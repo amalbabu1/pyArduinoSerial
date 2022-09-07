@@ -7,7 +7,7 @@ def get_data():
     with serial.Serial() as ser:
         try:
             selected_port = get_current_serial_port()
-            ser.baudrate = 9600
+            ser.baudrate = 115200
             ser.port = selected_port[1]
             ser.open()
             ser.flushInput
