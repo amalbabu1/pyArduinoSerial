@@ -8,8 +8,8 @@ def multiply_data(data_list:List, factor):
     
 
 
-def tranform_all(function, *args)->List:
-    return list(function(*args))
+def tranform_all(function,data_list,*args)->List:
+    return list(function(data_list.copy(), *args))
 
 
 
