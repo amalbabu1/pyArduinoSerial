@@ -2,7 +2,12 @@
 import signal
 import sys
 
-from src.file.write_to_file import file_writer
+from write_to_file import file_writer
+
+# from write_to_file import file_writer
+
+file_writer
+
 
 def quit_handler(signum, frame):
     print(f"Ctrl-c was pressed\n Application turned off")

@@ -1,10 +1,9 @@
-import time
 from typing import List
-from src.data.data_types import convert_to_int_type
-from src.communication.serial_utility import get_data
-from src.utils.datatransform.data_transform import tranform_all,multiply_data
-from src.utils.quit_utitlity import quit_handler
-from src.file.write_to_file import file_writer
+from data_types import convert_to_int_type
+from serial_utility import get_data
+from data_transform import tranform_all,multiply_data
+from quit_utitlity import quit_handler
+from write_to_file import file_writer
 import signal
 
 
