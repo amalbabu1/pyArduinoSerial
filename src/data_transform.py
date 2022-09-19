@@ -8,6 +8,14 @@ def multiply_data(data_list:List, factor):
     
 
 
+'''
+
+take a function (function) and its argumets and apply on the data
+here below multiply_data fn and args are passed to transform all
+
+this function can be used as an api to apply processing on the data
+
+'''
 def tranform_all(function,data_list,*args)->List:
     return list(function(data_list.copy(), *args))
 
