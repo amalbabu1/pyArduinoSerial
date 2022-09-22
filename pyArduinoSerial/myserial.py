@@ -1,17 +1,18 @@
 from typing import List
-from data_types import convert_to_int_type
-from data_transform import tranform_all,multiply_data
-from quit_utitlity import quit_handler
-from data_stream import DataStream
-from write_to_file import file_writer
+from .data_types import convert_to_int_type
+from .data_transform import tranform_all,multiply_data
+from .quit_utitlity import quit_handler
+from .data_stream import DataStream
+from .write_to_file import file_writer
 import signal
+
 
 
 def acton_on_index(data_l:List, index):
     data_l[index] = data_l[index] *3
     return data_l
 
-if __name__ == "__main__":
+def main():
     signal.signal(signal.SIGINT, quit_handler) #to quit the application using CTRL-C
     
     try:
@@ -44,3 +45,4 @@ if __name__ == "__main__":
         if ds.state:
             my_csv_file.close_file()
         my_csv_file_p.close_file()
+

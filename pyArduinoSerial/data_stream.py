@@ -1,9 +1,7 @@
 
 
-from serial_utility import get_data
-from read_from_file import file_reader
-
-
+from .serial_utility import get_data
+from .read_from_file import file_reader
 
 
 class DataStream():
