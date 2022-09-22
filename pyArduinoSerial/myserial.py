@@ -1,12 +1,14 @@
+from ast import arg
+from curses import baudrate
 from typing import List
+import signal
+
 from .data_types import convert_to_int_type
 from .data_transform import tranform_all,multiply_data
 from .quit_utitlity import quit_handler
 from .data_stream import DataStream
 from .write_to_file import file_writer
-import signal
-
-
+from .cli import parse_cmd_line_arguments
 
 def acton_on_index(data_l:List, index):
     data_l[index] = data_l[index] *3
@@ -14,13 +16,14 @@ def acton_on_index(data_l:List, index):
 
 def main():
     signal.signal(signal.SIGINT, quit_handler) #to quit the application using CTRL-C
-    
+    args = parse_cmd_line_arguments()
+    print("args",args)
     try:
         '''
         DataStream(True) -> Process from file
         DataStream(False) -> Process for serial directly from controller
         '''
-        ds = DataStream(False)
+        ds = DataStream(baudrate= args.baud,from_file= args.from_file)
         if ds.state:
             my_csv_file = file_writer("result/test_data.csv","w",",")
         my_csv_file_p = file_writer("result/test_data_processed.csv","w",",")

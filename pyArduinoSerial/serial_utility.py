@@ -3,7 +3,8 @@ import serial.tools.list_ports
 
 
 
-def get_data():
+def get_data(baudrate):
+    print(baudrate)
     with serial.Serial() as ser:
         try:
             selected_port = get_current_serial_port()

@@ -5,8 +5,9 @@ from .read_from_file import file_reader
 
 
 class DataStream():
-    def __init__(self, state:bool) -> None:
-        self.state = state
+    def __init__(self,baudrate, from_file:bool) -> None:
+        self.state = from_file
+        self.baudrate = baudrate
         if self.state:
             self.dataStream = get_data
         else:
@@ -14,4 +15,4 @@ class DataStream():
             self.dataStream = fl.read_from_file
 
     def getDataStream(self):
-        return self.dataStream()
+        return self.dataStream(self.baudrate)
